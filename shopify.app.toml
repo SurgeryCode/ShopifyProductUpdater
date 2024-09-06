@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "88a4233ee706f233ab9ae580d9e2ab7a"
+name = "update-product-id"
+handle = "update-product-id"
+application_url = "https://pierre-survivors-adaptive-wave.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "recruitment-tasks.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://pierre-survivors-adaptive-wave.trycloudflare.com/auth/callback",
+  "https://pierre-survivors-adaptive-wave.trycloudflare.com/auth/shopify/callback",
+  "https://pierre-survivors-adaptive-wave.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false
